@@ -1,0 +1,23 @@
+[project]
+name = "help-my-garden"
+version = "0.1.0"
+description = "Help My Garden - Open-weight local CrewAI horticultural advisory engine powered by Ollama"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "crewai[tools]>=0.100.0",
+    "pydantic>=2.9.0",
+    "langchain-ollama>=0.2.0",
+    "requests>=2.32.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+help-my-garden = "help_my_garden.main:run"
+garden-api = "help_my_garden.server:start"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

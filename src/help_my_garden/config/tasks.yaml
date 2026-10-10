@@ -1,0 +1,87 @@
+# Task definitions for Help My Garden Crew
+# Covering all 7 core categories required by the gardening advisor
+
+analyze_garden_location_task:
+  description: >
+    Analyze the user's garden location: "{location}".
+    Determine the USDA / RHS Hardiness Zone, approximate last spring frost date, first fall frost date, and current growing season phase.
+  expected_output: >
+    A JSON-compatible summary of the hardiness zone, frost risk window, and microclimate profile.
+  agent: garden_planner_agent
+
+planting_recommendation_task:
+  description: >
+    Based on the location "{location}" and climate zone, recommend suitable garden plants.
+    Crucially, divide recommendations into three distinct light categories:
+    1. Full Sun (6+ hours direct sunlight)
+    2. Part Shade (3-6 hours gentle sun or dappled light)
+    3. Full Shade (less than 3 hours direct sunlight)
+    For each recommended plant, present the "Best of the Best" time to plant it in this specific location.
+  expected_output: >
+    A structured breakdown of top companion and crop plants grouped by Full Sun, Part Shade, and Full Shade, with prime planting windows and soil prerequisites.
+  agent: garden_planner_agent
+
+pruning_assessment_task:
+  description: >
+    For the plant "{plant_name}" located in "{location}":
+    1. Determine whether this plant needs pruning or if it thrives better unpruned.
+    2. How often it should be pruned (e.g. annually in late winter, twice a year, or continuous deadheading).
+    3. The best time of year to prune (month and seasonal cue).
+    4. Crucial pruning guidelines and tools (clean bypass pruners, 45-degree angle above bud, 3-cut method for branches).
+  expected_output: >
+    Clear, actionable pruning protocol including frequency, best calendar window, tools, and warnings.
+  agent: pruning_specialist
+
+fertilization_schedule_task:
+  description: >
+    For the plant "{plant_name}" in "{location}":
+    1. Specify if and when it needs fertilization, and how often.
+    2. Recommended N-P-K nutrient balance and organic amendments (e.g. well-rotted compost, bone meal, seaweed kelp extract, fish emulsion).
+    3. Application method (top-dressing, foliar spray, or drip trenching) and seasonal cut-off dates to avoid frost-tender growth.
+  expected_output: >
+    A seasonal feeding schedule detailing frequency, organic fertilizer type, N-P-K balance, and application tips.
+  agent: soil_fertility_expert
+
+pest_and_spray_plan_task:
+  description: >
+    For "{plant_name}" in "{location}":
+    1. Identify the most common pests (e.g. aphids, hornworms, spider mites, cabbage moths) and fungal issues (powdery mildew, early blight).
+    2. Recommend what to spray and for which specific pest or disease.
+    3. Specify spray frequency, application timing (e.g. early morning or dusk to protect pollinators), and organic recipes (Neem oil, Bacillus thuringiensis, potassium bicarbonate, copper fungicide).
+  expected_output: >
+    An IPM spray matrix detailing pests, recommended spray, frequency, safe pollinator hours, and non-chemical prevention.
+  agent: pest_disease_sentinel
+
+harvest_evaluation_task:
+  description: >
+    For "{plant_name}" in "{location}":
+    Provide specific sensory evaluation criteria to determine exactly when the plant is ready to be harvested.
+    For fruiting plants like tomatoes, detail visual cues like the "blushing" stage (breaker stage), skin sheen, ease of detachment (slipping from the stem), scent, and firmness.
+  expected_output: >
+    Sensory checklist (visual indicators like blushing, tactile firmness, aroma, ease of separation) for peak harvest.
+  agent: harvest_storage_curator
+
+storage_protocol_task:
+  description: >
+    For "{plant_name}":
+    Detail how the harvested crop or flowers should be stored.
+    Include environmental requirements:
+    1. Light exposure (e.g. complete darkness for potatoes/onions vs ambient light).
+    2. Curing protocol if needed (warm ventilated curing for squash/garlic).
+    3. Temperature range (cool root cellar 45-55°F vs refrigeration 34-40°F).
+    4. Humidity levels and expected shelf life.
+  expected_output: >
+    Comprehensive post-harvest storage guide with darkness, temperature, humidity, curing step, and shelf-life.
+  agent: harvest_storage_curator
+
+seed_starting_guide_task:
+  description: >
+    For "{plant_name}" to be started from seed:
+    1. Pre-treatment required (e.g., soaking in warm water for 12-24 hours, scarification with sandpaper, or cold moist stratification in the fridge for 30-60 days) and exact duration.
+    2. Best soil temperature range for germination (°F and °C).
+    3. Light requirement: does the seed require light to germinate (surface sow) or darkness (cover thoroughly)?
+    4. Planting depth (e.g. 1/4 inch, surface pressed, 1 inch deep).
+    5. Average sprouting time (days to emerge).
+  expected_output: >
+    Precise seed propagation blueprint including pre-treatment & duration, temperature range, photoblastic light need, planting depth, and average sprouting days.
+  agent: propagation_master

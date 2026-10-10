@@ -1,0 +1,6 @@
+{
+  "name": "Help My Garden",
+  "description": "Smart gardening advisor and open-weight agentic platform for pruning, planting, spraying, fertilizing, harvesting, and seed germination tailored to your address and climate zone.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
